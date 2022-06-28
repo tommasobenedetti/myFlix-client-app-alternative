@@ -27,6 +27,7 @@ export function FavoriteMoviesView(props) {
       catch(error => console.error(error))
   }
 
+
   return (
     <Fragment>
       {favoriteMoviesList.length === 0 ? (
