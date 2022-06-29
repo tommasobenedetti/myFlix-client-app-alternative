@@ -15,10 +15,13 @@
 .button {
   border: 1px solid red;
   color: red;
+  &:hover {
+  background-color: red;
+  border: 1px solid red;
+  color: rgb(245, 245, 245);
 }
-
-.button:hover {
-  background-color: orangered;
-  border: 1px solid  black;
-  color: black;
+&:active {
+  background-color: rgb(141, 65, 65) !important;
+  color: rgb(245, 245, 245);
+}
 }
