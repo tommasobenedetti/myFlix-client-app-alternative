@@ -40327,7 +40327,7 @@ function Navbar({ user  }) {
                             }, void 0, true, {
                                 fileName: "src/components/navbar/navbar.jsx",
                                 lineNumber: 27,
-                                columnNumber: 13
+                                columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Fragment), {
                                 children: [
@@ -40337,27 +40337,27 @@ function Navbar({ user  }) {
                                     }, void 0, false, {
                                         fileName: "src/components/navbar/navbar.jsx",
                                         lineNumber: 35,
-                                        columnNumber: 15
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                         href: "/register",
-                                        children: "Sign-up"
+                                        children: "Register"
                                     }, void 0, false, {
                                         fileName: "src/components/navbar/navbar.jsx",
                                         lineNumber: 36,
-                                        columnNumber: 15
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/navbar/navbar.jsx",
                                 lineNumber: 34,
-                                columnNumber: 13
+                                columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.jsx",
                         lineNumber: 25,
-                        columnNumber: 13
+                        columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
