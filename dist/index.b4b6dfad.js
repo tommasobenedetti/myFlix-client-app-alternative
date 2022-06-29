@@ -40309,7 +40309,7 @@ function Navbar({ user  }) {
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                         href: `/users/${user}`,
-                                        children: "Profil"
+                                        children: "Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/navbar/navbar.jsx",
                                         lineNumber: 29,
