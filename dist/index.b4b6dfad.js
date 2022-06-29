@@ -40645,7 +40645,7 @@ function FavoriteMoviesView(props) {
         return favoriteMoviesId.includes(m._id);
     });
     const handleMovieDelete = (movieId)=>{
-        (0, _axiosDefault.default).delete(`https://quiet-savannah-08380.herokuapp.com/users/${currentUser}/${movieId}`, {
+        (0, _axiosDefault.default).delete(`https://quiet-savannah-08380.herokuapp.com/users/${currentUser}/FavoriteMovies/${movieId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
