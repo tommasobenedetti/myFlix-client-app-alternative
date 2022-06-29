@@ -40642,7 +40642,7 @@ function FavoriteMoviesView(props) {
     const { movies , favoriteMovies , currentUser , token  } = props;
     const favoriteMoviesId = favoriteMovies.map((m)=>m._id);
     const favoriteMoviesList = movies.filter((m)=>{
-        return favoriteMoviesId.includes(m._id);
+        return favoriteMovies.includes(m._id);
     });
     const handleMovieDelete = (movieId)=>{
         (0, _axiosDefault.default).delete(`https://quiet-savannah-08380.herokuapp.com/users/${currentUser}/FavoriteMovies/${movieId}`, {

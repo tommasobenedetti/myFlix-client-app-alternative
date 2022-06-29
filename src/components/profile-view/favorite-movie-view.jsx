@@ -13,7 +13,7 @@ export function FavoriteMoviesView(props) {
   const favoriteMoviesId = favoriteMovies.map(m => m._id)
 
   const favoriteMoviesList = movies.filter(m => {
-    return favoriteMoviesId.includes(m._id)
+    return favoriteMovies.includes(m._id)
   })
 
   const handleMovieDelete = (movieId) => {
