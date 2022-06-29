@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +9,6 @@ import './profile-view.scss';
 export function FavoriteMoviesView(props) {
   const { movies, favoriteMovies, currentUser, token } = props;
 
-  const favoriteMoviesId = favoriteMovies.map(m => m._id)
 
   const favoriteMoviesList = movies.filter(m => {
     return favoriteMovies.includes(m._id)
