@@ -40639,13 +40639,13 @@ var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
 function FavoriteMoviesView(props) {
-    const { movies , FavoriteMovies , Username , token  } = props;
-    const FavoriteMoviesId = FavoriteMovies.map((m)=>m._id);
-    const FavoriteMoviesList = movies.filter((m)=>{
-        return FavoriteMoviesId.includes(m._id);
+    const { movies , favoriteMovies , currentUser , token  } = props;
+    const favoriteMoviesId = favoriteMovies.map((m)=>m._id);
+    const favoriteMoviesList = movies.filter((m)=>{
+        return favoriteMoviesId.includes(m._id);
     });
     const handleMovieDelete = (movieId)=>{
-        (0, _axiosDefault.default).delete(`https://quiet-savannah-08380.herokuapp.com/users/${Username}/${movieId}`, {
+        (0, _axiosDefault.default).delete(`https://quiet-savannah-08380.herokuapp.com/users/${currentUser}/${movieId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -40655,13 +40655,13 @@ function FavoriteMoviesView(props) {
         }).catch((error)=>console.error(error));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Fragment), {
-        children: FavoriteMoviesList.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: favoriteMoviesList.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
             children: "You have no favorite movies yet."
         }, void 0, false, {
             fileName: "src/components/profile-view/favorite-movie-view.jsx",
             lineNumber: 33,
             columnNumber: 9
-        }, this) : FavoriteMoviesList.map((movie)=>{
+        }, this) : favoriteMoviesList.map((movie)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 xs: 10,
                 sm: 8,
