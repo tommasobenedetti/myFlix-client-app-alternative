@@ -8,7 +8,7 @@ import { Button, Card, Col } from 'react-bootstrap';
 import './profile-view.scss';
 
 export function FavoriteMoviesView(props) {
-  const { movies, favoriteMovies, currentUser, token } = props;
+  const { movies, favoriteMovies, Username, token } = props;
 
   const favoriteMoviesId = favoriteMovies.map(m => m._id)
 
@@ -17,7 +17,7 @@ export function FavoriteMoviesView(props) {
   })
 
   const handleMovieDelete = (movieId) => {
-    axios.delete(`https://quiet-savannah-08380.herokuapp.com/users/${currentUser}/${movieId}`, {
+    axios.delete(`https://quiet-savannah-08380.herokuapp.com/users/${Username}/${movieId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => {
