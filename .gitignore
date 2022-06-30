@@ -4,3 +4,7 @@ node_modules
 .idea
 dist
 .DS_store
+
+*dist/
+dist/*
+!/dist
