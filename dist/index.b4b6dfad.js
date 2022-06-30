@@ -39449,31 +39449,6 @@ class DirectorView extends (0, _reactDefault.default).Component {
                     lineNumber: 22,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                    className: "mt-3",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            className: "label",
-                            children: "Death: "
-                        }, void 0, false, {
-                            fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 27,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            className: "value",
-                            children: director.Death
-                        }, void 0, false, {
-                            fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 28,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 26,
-                    columnNumber: 9
-                }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     className: "d-block mt-3",
                     onClick: ()=>{
@@ -39483,7 +39458,7 @@ class DirectorView extends (0, _reactDefault.default).Component {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 30,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this)
             ]
@@ -40299,7 +40274,6 @@ function Navbar({ user  }) {
         className: "mb-5",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
-                href: "/",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                     children: "MyFlix"
                 }, void 0, false, {
@@ -41014,7 +40988,7 @@ function UpdateView(props) {
                                 controlId: "formEmail",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                        children: "Password:"
+                                        children: "Email:"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/update-view.jsx",
                                         lineNumber: 93,
@@ -41048,44 +41022,43 @@ function UpdateView(props) {
                                 controlId: "formBirthday",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                        children: "Password:"
+                                        children: "Birthaday:"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/update-view.jsx",
                                         lineNumber: 99,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                                        type: "text",
-                                        value: birthday,
-                                        onChange: (e)=>setBirthday(e.target.value),
-                                        placeholder: "YYYY-MM-DD"
+                                        name: "Birthdate",
+                                        type: "date",
+                                        onChange: (e)=>setBirthday(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/update-view.jsx",
                                         lineNumber: 100,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                        controlId: "formBirthday",
+                                        className: "mt-3",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                            variant: "warning",
+                                            type: "submit",
+                                            onClick: handleSubmit,
+                                            children: "Edit profile"
+                                        }, void 0, false, {
+                                            fileName: "src/components/profile-view/update-view.jsx",
+                                            lineNumber: 102,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "src/components/profile-view/update-view.jsx",
+                                        lineNumber: 101,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile-view/update-view.jsx",
                                 lineNumber: 98,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                                controlId: "formBirthday",
-                                className: "mt-3",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    variant: "warning",
-                                    type: "submit",
-                                    onClick: handleSubmit,
-                                    children: "Edit profile"
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 103,
-                                    columnNumber: 15
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/components/profile-view/update-view.jsx",
-                                lineNumber: 102,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -41330,17 +41303,17 @@ function RegistrationView(props) {
                             controlId: "formBirthday",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Label, {
-                                    children: "Birthday:"
+                                    children: "Date of Birth:"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
                                     lineNumber: 98,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _.Form).Control, {
-                                    type: "text",
+                                    type: "date",
                                     value: birthday,
                                     onChange: (e)=>setBirthday(e.target.value),
-                                    placeholder: "YYYY-MM-DD"
+                                    placeholder: "Enter your birthday"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
                                     lineNumber: 99,
@@ -41365,17 +41338,17 @@ function RegistrationView(props) {
                                     children: "Register"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 103,
+                                    lineNumber: 108,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 102,
+                                lineNumber: 107,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 101,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, this)
                     ]

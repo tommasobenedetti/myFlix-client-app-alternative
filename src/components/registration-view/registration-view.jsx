@@ -95,8 +95,13 @@ export function RegistrationView(props) {
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
             <Form.Group controlId="formBirthday">
-              <Form.Label>Birthday:</Form.Label>
-              <Form.Control type="text" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="YYYY-MM-DD" />
+              <Form.Label>Date of Birth:</Form.Label>
+              <Form.Control
+                type='date'
+                value={birthday}
+                onChange={e => setBirthday(e.target.value)}
+                placeholder="Enter your birthday"
+              />
             </Form.Group>
             <Row className="mt-3 justify-content-start">
               <Col sm="10" md="8" lg="6">

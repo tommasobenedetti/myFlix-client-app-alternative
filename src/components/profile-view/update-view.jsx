@@ -90,17 +90,18 @@ export function UpdateView(props) {
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
             <Form.Group controlId="formEmail">
-              <Form.Label>Password:</Form.Label>
+              <Form.Label>Email:</Form.Label>
               <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@mail.com" required />
               {/* display validation error */}
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
             <Form.Group controlId="formBirthday">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="text" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="YYYY-MM-DD" />
-            </Form.Group>
-            <Form.Group controlId="formBirthday" className="mt-3">
-              <Button variant="warning" type="submit" onClick={handleSubmit}>Edit profile</Button>
+              <Form.Label>Birthaday:</Form.Label>
+              <Form.Control name="Birthdate" type="date" onChange={(e) => setBirthday(e.target.value)} />
+              <Form.Group controlId="formBirthday" className="mt-3">
+                <Button variant="warning" type="submit" onClick={handleSubmit}>Edit profile</Button>
+              </Form.Group>
+
             </Form.Group>
           </Form>
         </Col>

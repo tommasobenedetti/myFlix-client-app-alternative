@@ -17,7 +17,7 @@ export function Navbar({ user }) {
 
   return (
     <Navbar bg="light" expand="lg" className="mb-5">
-      <Navbar.Brand href="/">
+      <Navbar.Brand>
         <strong>MyFlix</strong>
       </Navbar.Brand>
 
