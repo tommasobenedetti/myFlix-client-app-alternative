@@ -37,7 +37,11 @@ export function RegistrationView(props) {
     if (!email) {
       setValues({ ...values, emailErr: 'Email required' });
       isReq = false;
-    } else if (email.indexOf('@') === -1) {
+    } else if (
+      !email.match(
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+    ) {
       setValues({ ...values, emailErr: 'Enter valid email' });
       isReq = false;
     }
@@ -91,7 +95,7 @@ export function RegistrationView(props) {
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
             <Form.Group controlId="formBirthday">
-              <Form.Label>Password:</Form.Label>
+              <Form.Label>Birthday:</Form.Label>
               <Form.Control type="text" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="YYYY-MM-DD" />
             </Form.Group>
             <Row className="mt-3 justify-content-start">
