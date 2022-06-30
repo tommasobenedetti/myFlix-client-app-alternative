@@ -95,7 +95,8 @@ class MainView extends React.Component {
           }} />
 
           <Route path="/movies/:movieId" render={({ match, history }) => {
-            if (!user) return <Col>
+            if (!user) return
+            <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
