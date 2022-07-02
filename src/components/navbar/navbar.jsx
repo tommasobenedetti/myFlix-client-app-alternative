@@ -33,7 +33,7 @@ export function Navbar({ user }) {
           )}
           {!isAuth() && (
             <Fragment>
-              <Nav.Link href={'/login'}>Sign-in</Nav.Link>
+              <Nav.Link href={'/'}>Sign-in</Nav.Link>
               <Nav.Link href={'/register'}>Register</Nav.Link>
             </Fragment>
           )}
