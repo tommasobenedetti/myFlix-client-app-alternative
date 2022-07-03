@@ -30,25 +30,24 @@ export function LoginView(props) {
       isReq = false;
     }
     return isReq;
-  };
+  }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
-      try {
-        // Send a request to the server for authentication
-        let response = await axios.post('https://quiet-savannah-08380.herokuapp.com/login',
-          {
-            Username: username,
-            Password: password,
-          }
-        );
-        const data = response.data;
-        props.onLoggedIn(data);
-      } catch (e) {
-        console.log('No such user');
-      }
+      // Send a request to the server for authentication
+      axios.post('https://quiet-savannah-08380.herokuapp.com/login', {
+        Username: username,
+        Password: password
+      })
+        .then(response => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch(e => {
+          console.log('No such user')
+        });
     }
   };
 
@@ -89,5 +88,4 @@ LoginView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
   }),
-  onLoggedIn: PropTypes.func.isRequired,
-};
+}

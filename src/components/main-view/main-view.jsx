@@ -36,17 +36,19 @@ class MainView extends React.Component {
     }
   }
 
-  async getMovies(token) {
-    try {
-      let response = await axios.get('https://quiet-savannah-08380.herokuapp.com/movies', {
-        headers: { Authorization: `Bearer ${token}` }
+  getMovies(token) {
+    axios.get('https://quiet-savannah-08380.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // assign the result to the state
+        this.setState({
+          movies: response.data
+        });
       })
-      this.setState({
-        movies: response.data
-      })
-    } catch (error) {
-      console.log(error)
-    }
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // When a user successfully logs in, this function updates the 'user' property in state to that particular user
