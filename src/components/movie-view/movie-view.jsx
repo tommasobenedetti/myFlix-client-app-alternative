@@ -2,22 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { Button, Col, Container, Row } from 'react-bootstrap/';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', this.keypressCallback);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.keypressCallback);
-  }
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -71,11 +60,11 @@ MovieView.propTypes = {
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
       Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string
+      Death: PropTypes.string,
     }),
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
-    })
+      Description: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };

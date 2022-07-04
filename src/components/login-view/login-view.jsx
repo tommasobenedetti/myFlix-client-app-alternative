@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Button, Col, Container, Form, Row } from 'react-bootstrap/';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -38,13 +38,12 @@ export function LoginView(props) {
     if (isReq) {
       try {
         // Send a request to the server for authentication
-        let response = await axios.post('https://quiet-savannah-08380.herokuapp.com/login',
+        let { data } = await axios.post('https://quiet-savannah-08380.herokuapp.com/login',
           {
             Username: username,
             Password: password,
           }
         );
-        const data = response.data;
         props.onLoggedIn(data);
       } catch (e) {
         console.log('No such user');
