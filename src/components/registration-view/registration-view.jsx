@@ -24,14 +24,20 @@ export function RegistrationView(props) {
       setValues({ ...values, usernameErr: 'Username required' });
       isReq = false;
     } else if (username.length < 8) {
-      setValues({ ...values, usernameErr: 'Username must be at least 8 characters long' });
+      setValues({
+        ...values,
+        usernameErr: 'Username must be at least 8 characters long',
+      });
       isReq = false;
     }
     if (!password) {
       setValues({ ...values, passwordErr: 'Password required' });
       isReq = false;
     } else if (password.length < 8) {
-      setValues({ ...values, passwordErr: 'Password must be at least 8 characters long' });
+      setValues({
+        ...values,
+        passwordErr: 'Password must be at least 8 characters long'
+      });
       isReq = false;
     }
     if (!email) {
@@ -46,28 +52,29 @@ export function RegistrationView(props) {
       isReq = false;
     }
     return isReq;
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
-      axios.post('https://quiet-savannah-08380.herokuapp.com/users', {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-      })
-        .then(response => {
-          const data = response.data;
-          console.log(data);
-          alert('Registration successful, please login.');
-          window.open('/', '_self');
-        })
-        .catch(e => {
-          console.log('Error');
-          alert('Unable to register');
-        });
+      try {
+        let response = axios.post(
+          'https://quiet-savannah-08380.herokuapp.com/users',
+          {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+          }
+        );
+        console.log(response.data);
+        alert('Registration successful, please login.');
+        window.open('/', '_self');
+      } catch {
+        (e) => console.log('Error');
+        alert('Unable to register');
+      }
     }
   };
 
@@ -78,19 +85,37 @@ export function RegistrationView(props) {
           <Form>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                placeholder="Username"
+                required
+              />
               {/* display validation error */}
               {values.usernameErr && <p>{values.usernameErr}</p>}
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+              />
               {/* display validation error */}
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@mail.com" required />
+              <Form.Control
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="your@mail.com"
+                required
+              />
               {/* display validation error */}
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
@@ -105,14 +130,16 @@ export function RegistrationView(props) {
             </Form.Group>
             <Row className="mt-3 justify-content-start">
               <Col sm="10" md="8" lg="6">
-                <Button variant="warning" type="submit" onClick={handleSubmit}>Register</Button>
+                <Button variant="warning" type="submit" onClick={handleSubmit}>
+                  Register
+                </Button>
               </Col>
             </Row>
           </Form>
         </Col>
       </Row>
     </Container>
-  )
+  );
 }
 
 RegistrationView.propTypes = {
@@ -120,6 +147,6 @@ RegistrationView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string
+    Birthday: PropTypes.string,
   }),
 };
