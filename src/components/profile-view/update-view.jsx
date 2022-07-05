@@ -82,7 +82,7 @@ export function UpdateView(props) {
   return (
     <Container id="update-form" className="mt-5">
       <Row>
-        <h4>Edit profile</h4>
+        <h3>Edit profile</h3>
       </Row>
       <Row>
         <Col sm="10" md="8" lg="6">
@@ -99,7 +99,7 @@ export function UpdateView(props) {
               {/* display validation error */}
               {values.usernameErr && <p>{values.usernameErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="formPassword" className="mt-3">
               <Form.Label>Password:</Form.Label>
               <Form.Control
                 type="password"
@@ -111,7 +111,7 @@ export function UpdateView(props) {
               {/* display validation error */}
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formEmail">
+            <Form.Group controlId="formEmail" className="mt-3">
               <Form.Label>Email:</Form.Label>
               <Form.Control
                 type="text"
@@ -123,14 +123,14 @@ export function UpdateView(props) {
               {/* display validation error */}
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formBirthday">
+            <Form.Group controlId="formBirthday" className="mt-3">
               <Form.Label>Birthaday:</Form.Label>
               <Form.Control
                 name="Birthdate"
                 type="date"
                 onChange={(e) => setBirthday(e.target.value)}
               />
-              <Form.Group controlId="formBirthday" className="mt-3">
+              <Form.Group controlId="formBirthday" className="mt-4">
                 <Button variant="warning" type="submit" onClick={handleSubmit}>
                   Edit profile
                 </Button>

@@ -61,7 +61,7 @@ export function ProfileView(props) {
   return (
     <Container id="profile-form">
       <Row>
-        <h4>Your profile</h4>
+        <h3>Your profile</h3>
       </Row>
       <Row>
         <Col xs={5} sm={4} md={3} lg={2} className="label">
@@ -95,7 +95,7 @@ export function ProfileView(props) {
           {birthdayDate()}
         </Col>
       </Row>
-      <Row className="mt-5"><h4>Your favorite movies</h4></Row>
+      <Row className="mt-5"><h3>Your favorite movies</h3></Row>
       <Row className="mt-3">
         <FavoriteMoviesView
           movies={movies}

@@ -115,7 +115,7 @@ class MainView extends React.Component {
                 );
               if (movies.length === 0) return <div className="main-view" />;
               return (
-                <Col sm={12} md={12} lg={10} xl={8}>
+                <Col sm={12} md={10} lg={10} xl={8}>
                   <MovieView
                     movie={movies.find(m => m._id === match.params.movieId)}
                     onBackClick={() => history.goBack()}
@@ -177,7 +177,7 @@ class MainView extends React.Component {
               if (movies.length === 0) return <div className="main-view" />;
               if (!user) return <Redirect to="/" />;
               return (
-                <Col md={8}>
+                <Col>
                   <ProfileView
                     movies={movies}
                     user={user === match.params.username}

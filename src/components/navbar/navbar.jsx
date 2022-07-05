@@ -18,7 +18,7 @@ export function Navbar({ user }) {
   return (
     <Navbar bg="light" expand="lg" className="mb-5">
       <Navbar.Brand>
-        <strong>MyFlix</strong>
+        <h1>MyFlix</h1>
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="navbar-nav" />

@@ -71,7 +71,7 @@ export function LoginView(props) {
               {/* display validation error */}
               {passwordErr && <p>{passwordErr}</p>}
             </Form.Group>
-            <Row className="mt-3 justify-content-start">
+            <Row className="mt-4 justify-content-start">
               <Col sm="10" md="8" lg="6">
                 <Button variant="warning" type="submit" onClick={handleSubmit}>Login</Button>
               </Col>
