@@ -18,6 +18,9 @@ export function UpdateView(props) {
     emailErr: '',
   });
 
+  const userToken = localStorage.getItem('user');
+
+
   // validate user inputs
   const validate = () => {
     let isReq = true;
@@ -50,18 +53,23 @@ export function UpdateView(props) {
     const isReq = validate();
     if (isReq) {
       const token = localStorage.getItem('token');
-      axios.put(`https://quiet-savannah-08380.herokuapp.com/users/${user.Username}`, {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-      },
+      axios.put(
+        `https://quiet-savannah-08380.herokuapp.com/users/${user.Username}`,
+        {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthday: birthday
+        },
         {
           headers: { Authorization: `Bearer ${token}` }
-        })
+        }
+      )
         .then(response => {
           console.log(response.data);
           alert('Profile was successfully updated.');
+          localStorage.setItem("user", response.data.Username)
+
           window.open('/users/:username', '_self');
         })
         .catch(error => {
@@ -73,38 +81,73 @@ export function UpdateView(props) {
 
   return (
     <Container id="update-form" className="mt-5">
-      <Row><h4>Edit profile</h4></Row>
+      <Row>
+        <h3>Edit profile</h3>
+      </Row>
       <Row>
         <Col sm="10" md="8" lg="6">
           <Form>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                placeholder="Username"
+                required
+              />
               {/* display validation error */}
               {values.usernameErr && <p>{values.usernameErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="formPassword" className="mt-3">
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+              />
               {/* display validation error */}
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@mail.com" required />
+            <Form.Group controlId="formEmail" className="mt-3">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="your@mail.com"
+                required
+              />
               {/* display validation error */}
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
-            <Form.Group controlId="formBirthday">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="text" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="YYYY-MM-DD" />
-            </Form.Group>
             <Form.Group controlId="formBirthday" className="mt-3">
-              <Button variant="warning" type="submit" onClick={handleSubmit}>Edit profile</Button>
+              <Form.Label>Birthaday:</Form.Label>
+              <Form.Control
+                name="Birthdate"
+                type="date"
+                onChange={(e) => setBirthday(e.target.value)}
+              />
+              <Form.Group controlId="formBirthday" className="mt-4">
+                <Button variant="warning" type="submit" onClick={handleSubmit}>
+                  Edit profile
+                </Button>
+              </Form.Group>
             </Form.Group>
           </Form>
         </Col>
       </Row>
     </Container>
-  )
+  );
 }
+
+UpdateView.propTypes = {
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string,
+  }),
+}; 
