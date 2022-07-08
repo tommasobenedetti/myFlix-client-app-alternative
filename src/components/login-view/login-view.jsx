@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Button, Col, Container, Form, Row } from 'react-bootstrap/';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -30,30 +30,33 @@ export function LoginView(props) {
       isReq = false;
     }
     return isReq;
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
-      // Send a request to the server for authentication
-      axios.post('https://quiet-savannah-08380.herokuapp.com/login', {
-        Username: username,
-        Password: password
-      })
-        .then(response => {
-          const data = response.data;
-          props.onLoggedIn(data);
-        })
-        .catch(e => {
-          console.log('No such user')
-        });
+      try {
+        // Send a request to the server for authentication
+        let { data } = await axios.post('https://quiet-savannah-08380.herokuapp.com/login',
+          {
+            Username: username,
+            Password: password,
+          }
+        );
+        props.onLoggedIn(data);
+      } catch (e) {
+        console.log('No such user');
+      }
     }
   };
 
   return (
     <Container id="login-form">
       <Row className="justify-content-center">
+        <h2>Log in to myFlix</h2>
+      </Row>
+      <Row className="justify-content-center mt-3">
         <Col sm="10" md="8" lg="6">
           <Form>
             <Form.Group controlId="formUsername">
@@ -68,7 +71,7 @@ export function LoginView(props) {
               {/* display validation error */}
               {passwordErr && <p>{passwordErr}</p>}
             </Form.Group>
-            <Row className="mt-3 justify-content-start">
+            <Row className="mt-4 justify-content-start">
               <Col sm="10" md="8" lg="6">
                 <Button variant="warning" type="submit" onClick={handleSubmit}>Login</Button>
               </Col>
@@ -85,5 +88,5 @@ LoginView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
   }),
-  onLoggedIn: PropTypes.func.isRequired
-}
+  onLoggedIn: PropTypes.func.isRequired,
+};
